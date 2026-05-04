@@ -43,8 +43,16 @@ def _workspace_root() -> Path:
 
 
 def _binary_path() -> Path:
-	# Requested command style: build/src/bin/kepler-formal
-	return (_workspace_root() / "build" / "src" / "bin" / "kepler-formal").resolve()
+	# Prefer the submodule build tree under thirdparty/.
+	candidates = [
+		_workspace_root() / "thirdparty" / "kepler-formal" / "build" / "src" / "bin" / "kepler-formal",
+		_workspace_root() / "build" / "src" / "bin" / "kepler-formal",
+	]
+	for candidate in candidates:
+		resolved = candidate.resolve()
+		if resolved.exists():
+			return resolved
+	return candidates[-1].resolve()
 
 
 def _resolve_path(path_value: str) -> Path:
