@@ -20,6 +20,9 @@ from mcp.server.fastmcp import FastMCP
 
 app = FastMCP("kepler-formal")
 
+def _workspace_root() -> Path:
+	return Path(__file__).resolve().parents
+
 
 def _default_ai_output_dir() -> Path:
 	"""Return the workspace-local default writable folder for AI outputs."""
@@ -37,9 +40,6 @@ logging.basicConfig(
 	force=True,
 )
 
-
-def _workspace_root() -> Path:
-	return Path(__file__).resolve().parents[1]
 
 
 def _binary_path() -> Path:

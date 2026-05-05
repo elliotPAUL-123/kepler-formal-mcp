@@ -86,7 +86,12 @@ git -C "$ROOT_DIR" submodule update --init --recursive -- thirdparty/kepler-form
 mkdir -p "$BUILD_DIR"
 cd "$BUILD_DIR"
 
-cmake ..
+cmake .. \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CXX_STANDARD=20 \
+  -DCMAKE_CXX_FLAGS="-O3 -march=native -ffast-math -flto -DNDEBUG" \
+  -DCMAKE_CXX_FLAGS_RELEASE="-Ofast -march=native -ffast-math -flto -DNDEBUG" \
+  -DCMAKE_EXE_LINKER_FLAGS="-flto"
 cmake --build . --parallel "$(cpu_count)"
 
 echo "Build complete: $BUILD_DIR"
