@@ -21,12 +21,12 @@ from mcp.server.fastmcp import FastMCP
 app = FastMCP("kepler-formal")
 
 def _workspace_root() -> Path:
-	return Path(__file__).resolve().parents
+	return Path(__file__).resolve().parent
 
 
 def _default_ai_output_dir() -> Path:
 	"""Return the workspace-local default writable folder for AI outputs."""
-	return _workspace_root().resolve()
+	return _workspace_root()
 
 
 # Writable folder for AI-generated outputs (yaml/log).
