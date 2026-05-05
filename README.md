@@ -1,46 +1,46 @@
 # kepler-formal-mcp
 
-## Utilisation
+## Usage
 
-Pour utiliser ce MCP, il suffit de:
+To use this MCP, simply:
 
-1. Cloner le dépôt avec les sous-modules, ou initialiser le sous-module après coup.
-2. Lancer le script de build:
+1. Clone the repository with submodules, or initialize the submodule afterward.
+2. Run the build script:
 
 ```bash
 ./build_kepler_formal.sh
 ```
 
-Si tu veux aussi installer automatiquement les dépendances système, lance:
+If you also want the system dependencies to be installed automatically, run:
 
 ```bash
 ./build_kepler_formal.sh --install-deps
 ```
 
-Ce script va récupérer `kepler-formal`, initialiser ses sous-modules, puis compiler le binaire dans `thirdparty/kepler-formal/build/`.
+This script will fetch `kepler-formal`, initialize its submodules, and then build the binary in `thirdparty/kepler-formal/build/`.
 
-Le dépôt contient maintenant `kepler-formal` comme vrai sous-module Git dans `thirdparty/kepler-formal`.
+The repository now includes `kepler-formal` as a proper Git submodule in `thirdparty/kepler-formal`.
 
-Ensuite, `server.py` cherche automatiquement le binaire généré dans le bon dossier, donc il n’y a pas d’étape manuelle supplémentaire pour le retrouver.
+After that, `server.py` automatically looks for the generated binary in the correct directory, so there is no extra manual step to locate it.
 
-## Dépendances
+## Dependencies
 
-Sur Linux Ubuntu/Debian:
+On Linux Ubuntu/Debian:
 
 ```bash
 sudo apt-get install g++ libboost-dev python3.9-dev capnproto libcapnp-dev libtbb-dev pkg-config bison flex doxygen libspdlog-dev libfmt-dev libboost-iostreams-dev zlib1g-dev
 ```
 
-Sur Fedora:
+On Fedora:
 
 ```bash
 sudo dnf install gcc-c++ boost-devel python3-devel capnproto capnproto-devel tbb-devel pkgconf-pkg-config bison flex doxygen spdlog-devel fmt-devel boost-iostreams-devel zlib-devel cmake git
 ```
 
-Sur macOS avec Homebrew:
+On macOS with Homebrew:
 
 ```bash
 brew install cmake doxygen capnp tbb bison flex boost spdlog zlib
 ```
 
-Sous Windows, le plus simple est de passer par WSL2 ou MSYS2 avec un environnement Bash compatible. L’installation automatique des dépendances système n’est pas prévue pour Windows natif.
+On Windows, the easiest approach is to use WSL2 or MSYS2 with a compatible Bash environment. Automatic installation of system dependencies is not supported on native Windows.
