@@ -42,7 +42,7 @@ This creates modified versions of the design files that you can compare with the
 
 ## Step 4: Use Kepler Formal MCP in Claude
 
-Now you can ask Claude to compare the two versions using the Kepler Formal MCP tools:
+After setting up Claude and configuring the shared folder path in Claude, you can ask it to compare the two versions using the Kepler Formal MCP tools:
 
 ### Example: Compare Two Versions
 "Use the Kepler Formal MCP tools to compare `tinyrocket.v` with `tinyrocket_modified.v` and identify all differences"
